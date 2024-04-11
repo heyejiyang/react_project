@@ -13,6 +13,7 @@
 ```
 
 ## 의존성 설치
+
 - 필요 라이브러리
 
   - react-router-dom: 라우터
@@ -49,8 +50,8 @@ root.render(
 ```
 
 - 사용법
-```jsx
 
+```jsx
 import { Helmet } from 'react-helmet-async';
 
 const App = () => {
@@ -64,8 +65,8 @@ const App = () => {
 };
 
 export default App;
-
 ```
+
 ## 메시지, 다국어 처리
 
 - 의존성: i18next, react-i18next
@@ -76,6 +77,7 @@ yarn add i18next react-i18next
 ```
 
 - 언어 파일 생성
+
   - src/langs/ko, src/langs/en 폴더 생성
   - 각 폴더별로 공통 문구: commons.js, 검증 문구: validations.js, 에러문구: errors.js
 
@@ -90,7 +92,8 @@ const ko = { ...commons, ...validations, ...errors };
 
 export default ko;
 ```
-- 설정 파일  구성: src/i18n.js
+
+- 설정 파일 구성: src/i18n.js
 
 ```javascript
 import i18n from 'i18next';
@@ -121,13 +124,13 @@ import './i18n';
 ...
 
 ```
+
 - 적용하기: useTranslation 훅을 통해서 사용 가능/ react-i18next
   - t: 메시지 조회 함수
   - i18n: 편의 기능 객체(changeLanguage(..): 언어 변경 함수 - 제일 많이 씀)
 
-
- ```jsx
- import { Helmet } from 'react-helmet-async';
+```jsx
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 
 const App = () => {
@@ -152,5 +155,17 @@ const App = () => {
 };
 
 export default App;
- 
- ```
+```
+
+# 레이아웃 구성
+
+- src/layouts/MainLayout.js
+- src/outlines/Header.js
+- src/outlines/Footer.js
+
+# 라우팅 구성
+
+## 회원
+
+- /member/join: 회원가입 페이지
+- /member/login: 로그인 페이지
