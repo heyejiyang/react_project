@@ -90,3 +90,67 @@ const ko = { ...commons, ...validations, ...errors };
 
 export default ko;
 ```
+- 설정 파일  구성: src/i18n.js
+
+```javascript
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import ko from './langs/ko'; // ko/index.js
+import en from './langs/en';
+
+const resources = {
+  en: {
+    translation: en,
+  },
+  ko: {
+    translation: ko,
+  },
+};
+
+i18n.use(initReactI18next).init({
+  resources, //설정명과 객체명 동일하게 만들어주면 resources:resources라고 해줄 필요없이 하나로 가능
+  lng: 'ko',
+});
+```
+
+- 설정 반영: src/index.js
+
+```javascript
+...
+import './i18n';
+...
+
+```
+- 적용하기: useTranslation 훅을 통해서 사용 가능/ react-i18next
+  - t: 메시지 조회 함수
+  - i18n: 편의 기능 객체(changeLanguage(..): 언어 변경 함수 - 제일 많이 씀)
+
+
+ ```jsx
+ import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+
+const App = () => {
+  const { t, i18n } = useTranslation();
+
+  return (
+    <>
+      <Helmet>
+        <title>사이트 제목 변경 테스트</title>
+      </Helmet>
+      <div>{t('아이디')}</div>
+      <div>{t('약관에_동의')}</div>
+      <div>{t('없는_문구')}</div>
+      <button type="button" onClick={() => i18n.changeLanguage('ko')}>
+        한국어
+      </button>
+      <button type="button" onClick={() => i18n.changeLanguage('en')}>
+        English
+      </button>
+    </>
+  );
+};
+
+export default App;
+ 
+ ```
