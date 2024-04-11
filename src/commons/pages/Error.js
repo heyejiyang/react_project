@@ -8,9 +8,10 @@ class ErrorPage extends Component {
     message: '',
   };
   componentDidCatch(error, info) {
+    //에러잡기
     if (error) {
       this.setState({ message: error.message }); //에러발생
-      console.error(error, info);//콘솔로 에러메시지 확인
+      console.error(error, info); //콘솔로 에러메시지 확인
     }
   }
 
