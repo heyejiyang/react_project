@@ -9,13 +9,13 @@ export const color = {
   dark: '#343a40',
 };
 
-export const butonColor = {
-  primary: [color.primary, '#fff'], //두번째꺼는 글자색
-  secondary: [color.secondary, '#fff'],
-  success: [color.success, '#fff'],
-  danger: [color.danger, '#fff'],
-  warning: [color.warning, '#212529'],
-  info: [color.info, '#fff'],
-  light: [color.info, '#212529'],
-  dark: [color.dark, '#fff'],
+export const buttonColor = {
+  primary: [color.primary, '#fff', color.primary], //두번째꺼는 글자색
+  secondary: [color.secondary, '#fff', color.secondary],
+  success: [color.success, '#fff',color.success],
+  danger: [color.danger, '#fff', color.danger],
+  warning: [color.warning, '#212529', '#212529'],
+  info: [color.info, '#fff',color.info],
+  light: [color.light, '#212529','#212529'],
+  dark: [color.dark, '#fff',color.dark],
 };
