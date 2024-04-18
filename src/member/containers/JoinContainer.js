@@ -40,7 +40,7 @@ const JoinContainer = () => {
       };
 
       for (const [field, msg] of Object.entries(requiredFileds)) {
-        if (!form[field] || (form[field] && !form[field].trim())) {
+        if (!form[field] || (typeof form[field] === 'string' && !form[field].trim())) {
           //!form[field]-null,undefined,''이거나 또는 공백만 있거나
           _errors[field] = _errors[field] || [];
           _errors[field].push(msg);
